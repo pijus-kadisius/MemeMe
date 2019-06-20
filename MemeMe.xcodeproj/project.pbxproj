@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		96DF200D22BAB27300DCD3AD /* PickAndDisplayImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickAndDisplayImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96DF200D22BAB27300DCD3AD /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DF201022BAB27300DCD3AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96DF201222BAB27300DCD3AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		96DF201522BAB27300DCD3AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		96DF200E22BAB27300DCD3AD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				96DF200D22BAB27300DCD3AD /* PickAndDisplayImage.app */,
+				96DF200D22BAB27300DCD3AD /* MemeMe.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,9 +67,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		96DF200C22BAB27300DCD3AD /* PickAndDisplayImage */ = {
+		96DF200C22BAB27300DCD3AD /* MemeMe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96DF201F22BAB27400DCD3AD /* Build configuration list for PBXNativeTarget "PickAndDisplayImage" */;
+			buildConfigurationList = 96DF201F22BAB27400DCD3AD /* Build configuration list for PBXNativeTarget "MemeMe" */;
 			buildPhases = (
 				96DF200922BAB27300DCD3AD /* Sources */,
 				96DF200A22BAB27300DCD3AD /* Frameworks */,
@@ -79,9 +79,9 @@
 			);
 			dependencies = (
 			);
-			name = PickAndDisplayImage;
+			name = MemeMe;
 			productName = PickAndDisplayImage;
-			productReference = 96DF200D22BAB27300DCD3AD /* PickAndDisplayImage.app */;
+			productReference = 96DF200D22BAB27300DCD3AD /* MemeMe.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +99,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 96DF200822BAB27300DCD3AD /* Build configuration list for PBXProject "PickAndDisplayImage" */;
+			buildConfigurationList = 96DF200822BAB27300DCD3AD /* Build configuration list for PBXProject "MemeMe" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,7 +112,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				96DF200C22BAB27300DCD3AD /* PickAndDisplayImage */,
+				96DF200C22BAB27300DCD3AD /* MemeMe */,
 			);
 		};
 /* End PBXProject section */
@@ -315,7 +315,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		96DF200822BAB27300DCD3AD /* Build configuration list for PBXProject "PickAndDisplayImage" */ = {
+		96DF200822BAB27300DCD3AD /* Build configuration list for PBXProject "MemeMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				96DF201D22BAB27400DCD3AD /* Debug */,
@@ -324,7 +324,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96DF201F22BAB27400DCD3AD /* Build configuration list for PBXNativeTarget "PickAndDisplayImage" */ = {
+		96DF201F22BAB27400DCD3AD /* Build configuration list for PBXNativeTarget "MemeMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				96DF202022BAB27400DCD3AD /* Debug */,

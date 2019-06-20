@@ -8,19 +8,48 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var bottomTextField: UITextField!
+    
+    // Define text field properties
+    let memeTextAttributes: [NSAttributedString.Key: Any] = [
+        NSAttributedString.Key.strokeColor: UIColor.black,
+        NSAttributedString.Key.foregroundColor: UIColor.white,
+        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSAttributedString.Key.strokeWidth: -3.00
+    ]
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Assign text field properties to top and bottom text fields
+        topTextField.defaultTextAttributes = memeTextAttributes;
+        topTextField.text = "TOP"
+        topTextField.textAlignment = .center
+        topTextField.delegate = self
+        
+        
+        bottomTextField.defaultTextAttributes = memeTextAttributes;
+        bottomTextField.text = "BOTTOM"
+        bottomTextField.textAlignment = .center
+        bottomTextField.delegate = self
     }
     
     // Disable camera button if camera is not available on device
     override func viewWillAppear(_ animated: Bool) {
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+    }
+    
+    // Hide keyboard on pressing return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        topTextField.resignFirstResponder()
+        bottomTextField.resignFirstResponder()
+        return true
     }
 
     // Pick image and close imagePickerController
