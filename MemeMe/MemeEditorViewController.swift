@@ -18,10 +18,10 @@ class MemeEditorViewController: UIViewController {
 
     // Define text field properties
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
-        NSAttributedString.Key.strokeColor: UIColor.black,
-        NSAttributedString.Key.foregroundColor: UIColor.white,
-        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedString.Key.strokeWidth: -3.00
+        .strokeColor: UIColor.black,
+        .foregroundColor: UIColor.white,
+        .font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        .strokeWidth: -3.00
     ]
     
     struct Meme {
@@ -67,68 +67,7 @@ class MemeEditorViewController: UIViewController {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
     }
-    
-    // Hide keyboard on pressing return
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        topTextField.resignFirstResponder()
-        bottomTextField.resignFirstResponder()
-        return true
-    }
 
-    // Pick image and close imagePickerController
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[.originalImage] as? UIImage {
-            imagePickerView.image = image
-        }
-        dismiss(animated: true, completion: nil)
-    }
-    
-    // Close imagePickerController when cancel is pressed
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    // Pick image from album
-    @IBAction func pickAnImageFromAlbum(_ sender:Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
-    // Pick image from camera (take image)
-    @IBAction func pickAnImageFromCamera(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
-    // Functions to display and hide the keyboard
-    func subscribeToKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    func unsubscribeFromKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc func keyboardWillShow(_ notification:Notification) {
-        view.frame.origin.y -= getKeyboardHeight(notification)
-    }
-    
-    @objc func keyboardWillHide(_ notification:Notification) {
-        view.frame.origin.y = 0
-    }
-    
-    func getKeyboardHeight(_ notification:Notification) -> CGFloat {
-        let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // of CGRect
-        return keyboardSize.cgRectValue.height
-    }
-    
     // Function to save a meme
     // TODO: check requirements for this method
     func save() {
@@ -177,10 +116,73 @@ class MemeEditorViewController: UIViewController {
     }
 }
 
+// All `UIImagePickerControllerDelegate` methods here
 extension MemeEditorViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    // All `UIImagePickerControllerDelegate` methods here
+    // Pick image and close imagePickerController
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            imagePickerView.image = image
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Close imagePickerController when cancel is pressed
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Pick image from album
+    @IBAction func pickAnImageFromAlbum(_ sender:Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    // Pick image from camera (take image)
+    @IBAction func pickAnImageFromCamera(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        present(imagePicker, animated: true, completion: nil)
+    }
+
 }
 
+// All `UITextFieldDelegate` methods here
 extension MemeEditorViewController: UITextFieldDelegate {
-    // All `UITextFieldDelegate` methods here
+    // Hide keyboard on pressing return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        topTextField.resignFirstResponder()
+        bottomTextField.resignFirstResponder()
+        return true
+    }
+    
+    // Functions to display and hide the keyboard
+    func subscribeToKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(_ notification:Notification) {
+        // only do this if the bottom text field is being edited
+        if bottomTextField.isFirstResponder {
+            view.frame.origin.y -= getKeyboardHeight(notification)
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification:Notification) {
+        view.frame.origin.y = 0
+    }
+    
+    func getKeyboardHeight(_ notification:Notification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.cgRectValue.height
+    }
 }
