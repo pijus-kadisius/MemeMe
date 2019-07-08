@@ -63,11 +63,10 @@ class MemeEditorViewController: UIViewController {
     }
 
     // Function to save a meme
-    // TODO: check requirements for this method
     func save() {
-        let memedImage = generateMemedImage()
         // Create the meme
-        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        let memedImage = generateMemedImage()
+        _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
     }
 
     // TODO: check if the navbar and toolbar are actually being hidden and shown
@@ -91,14 +90,15 @@ class MemeEditorViewController: UIViewController {
     }
     
     // Method to share meme
-    // TODO: pass the created meme to this method
     @IBAction func share(_ sender: Any) {
         let memeToShare = generateMemedImage()
-        if let myWebsite = NSURL(string: "") {
-            let objectsToShare = [memeToShare, myWebsite] as [Any]
-            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-            activityVC.popoverPresentationController?.sourceView = sender as? UIView
-            self.present(activityVC, animated: true, completion: nil)
+        let activityView = UIActivityViewController(activityItems: [memeToShare as Any], applicationActivities: nil);
+        self.present(activityView, animated: true, completion: nil)
+        activityView.completionWithItemsHandler = {
+            (activity, success, items, error) in
+            if(success){
+                self.dismiss(animated: true, completion: nil);
+            }
         }
     }
     
