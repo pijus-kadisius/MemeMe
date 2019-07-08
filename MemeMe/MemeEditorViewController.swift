@@ -35,25 +35,19 @@ class MemeEditorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let topPlaceholder = NSAttributedString(string: "TOP", attributes: [NSAttributedString.Key.strokeColor: UIColor.black,
-                                                                         NSAttributedString.Key.foregroundColor: UIColor.white,
-                                                                         NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-                                                                         NSAttributedString.Key.strokeWidth: -3.00])
-        
-        let bottomPlaceholder = NSAttributedString(string: "BOTTOM", attributes: [NSAttributedString.Key.strokeColor: UIColor.black,
-                                                                            NSAttributedString.Key.foregroundColor: UIColor.white,
-                                                                            NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-                                                                            NSAttributedString.Key.strokeWidth: -3.00])
-        // Assign text field properties to top and bottom text fields
-        topTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.attributedPlaceholder = topPlaceholder
-        topTextField.textAlignment = .center
-        topTextField.delegate = self
-        
-        bottomTextField.defaultTextAttributes = memeTextAttributes;
-        bottomTextField.attributedPlaceholder = bottomPlaceholder
-        bottomTextField.textAlignment = .center
-        bottomTextField.delegate = self
+        setupTextField(topTextField, text: "TOP TEXT")
+        setupTextField(bottomTextField, text: "BOTTOM TEXT")
+    }
+    
+    func setupTextField(_ textField: UITextField, text: String) {
+        let placeHolderAttributes = NSAttributedString(string: text, attributes: [NSAttributedString.Key.strokeColor: UIColor.black,
+                                                                                   NSAttributedString.Key.foregroundColor: UIColor.white,
+                                                                                   NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+                                                                                   NSAttributedString.Key.strokeWidth: -3.00])
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.attributedPlaceholder = placeHolderAttributes
+        textField.textAlignment = .center
+        textField.delegate = self
     }
     
     // Disable camera button if camera is not available on device
