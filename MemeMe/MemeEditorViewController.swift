@@ -127,17 +127,18 @@ extension MemeEditorViewController: UIImagePickerControllerDelegate, UINavigatio
     
     // Pick image from album
     @IBAction func pickAnImageFromAlbum(_ sender:Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true, completion: nil)
+        presentPickerViewController(source: .photoLibrary)
     }
     
     // Pick image from camera (take image)
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
+        presentPickerViewController(source: .camera)
+    }
+    
+    func presentPickerViewController(source: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = .camera
+        imagePicker.sourceType = source
         present(imagePicker, animated: true, completion: nil)
     }
 
