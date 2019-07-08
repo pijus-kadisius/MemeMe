@@ -15,7 +15,10 @@ class MemeEditorViewController: UIViewController {
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet var shareButton: UIBarButtonItem!
-
+    @IBOutlet weak var topNavBar: UINavigationBar!
+    @IBOutlet weak var bottomToolbar: UIToolbar!
+    
+    
     // Define text field properties
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
         .strokeColor: UIColor.black,
@@ -69,22 +72,16 @@ class MemeEditorViewController: UIViewController {
         _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
     }
 
-    // TODO: check if the navbar and toolbar are actually being hidden and shown
     func generateMemedImage() -> UIImage {
-        
-        // Hide toolbar and navbar
-        navigationController?.setToolbarHidden(true, animated: false)
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
+        topNavBar.isHidden = true
+        bottomToolbar.isHidden = true
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        topNavBar.isHidden = false
+        bottomToolbar.isHidden = false
         UIGraphicsEndImageContext()
-
-        // Show toolbar and navbar
-        navigationController?.setToolbarHidden(false, animated: false)
-        navigationController?.setNavigationBarHidden(false, animated: false)
         
         return memedImage
     }

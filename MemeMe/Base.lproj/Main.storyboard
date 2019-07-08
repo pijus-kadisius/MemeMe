@@ -101,9 +101,11 @@
                     </view>
                     <connections>
                         <outlet property="bottomTextField" destination="10b-jh-Q4h" id="ZPg-br-zTD"/>
+                        <outlet property="bottomToolbar" destination="b2b-2m-DAQ" id="Tof-0i-r4B"/>
                         <outlet property="cameraButton" destination="EGZ-ws-keq" id="7xG-bQ-moj"/>
                         <outlet property="imagePickerView" destination="kpc-40-Yon" id="LE5-PL-eoN"/>
                         <outlet property="shareButton" destination="3zF-MI-pFP" id="zfQ-T8-KV8"/>
+                        <outlet property="topNavBar" destination="TTQ-tm-Nqf" id="22Z-kP-27z"/>
                         <outlet property="topTextField" destination="bpV-8A-HkR" id="PcU-fN-wBS"/>
                     </connections>
                 </viewController>
