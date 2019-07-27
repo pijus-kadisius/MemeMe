@@ -68,6 +68,10 @@ class MemeEditorViewController: UIViewController {
         bottomToolbar.isHidden = false
         UIGraphicsEndImageContext()
         
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(memedImageObject)
+        
         return memedImageObject
     }
     
