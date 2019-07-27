@@ -2,7 +2,7 @@
 //  Meme.swift
 //  MemeMe
 //
-//  Created by Kadisius, Pijus on 7/8/19.
+//  Created by Kadisius, Pijus on 7/27/19.
 //  Copyright © 2019 pk. All rights reserved.
 //
 
@@ -10,8 +10,15 @@ import Foundation
 import UIKit
 
 class Meme {
-    var topText: String
-    var bottomText: String
-    var originalImage: UIImage?
-    var memedImage: UIImage?
+    var top: String = ""
+    var bottom: String = ""
+    var image: UIImage = UIImage()
+    var memedImage: UIImage = UIImage()
+    
+    init(top: String, bottom: String, image: UIImage, memedImage: UIImage) {
+        self.top = top
+        self.bottom = bottom
+        self.image = image
+        self.memedImage = memedImage
+    }
 }

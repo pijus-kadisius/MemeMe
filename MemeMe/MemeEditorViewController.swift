@@ -26,13 +26,13 @@ class MemeEditorViewController: UIViewController {
         .font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         .strokeWidth: -3.00
     ]
-    
-    struct Meme {
-        var topText: String
-        var bottomText: String
-        var originalImage: UIImage?
-        var memedImage: UIImage?
-    }
+//
+//    struct Meme {
+//        var topText: String
+//        var bottomText: String
+//        var originalImage: UIImage?
+//        var memedImage: UIImage?
+//    }
     
     // Lifecycle methods
     override func viewDidLoad() {
@@ -69,21 +69,24 @@ class MemeEditorViewController: UIViewController {
     func save() {
         // Create the meme
         let memedImage = generateMemedImage()
-        _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        _ = Meme(top: topTextField.text!, bottom: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage.memedImage)
     }
 
-    func generateMemedImage() -> UIImage {
+    func generateMemedImage() -> Meme {
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
+        
         topNavBar.isHidden = true
         bottomToolbar.isHidden = true
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
-        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        
+        let memedImageObject = Meme(top: topTextField.text!, bottom: bottomTextField.text!, image: imagePickerView.image!, memedImage: UIGraphicsGetImageFromCurrentImageContext()!)
+        
         topNavBar.isHidden = false
         bottomToolbar.isHidden = false
         UIGraphicsEndImageContext()
         
-        return memedImage
+        return memedImageObject
     }
     
     // Method to share meme
