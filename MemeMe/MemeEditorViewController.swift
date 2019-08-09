@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  PickAndDisplayImage
-//
-//  Created by Kadisius, Pijus on 6/19/19.
-//  Copyright © 2019 pk. All rights reserved.
-//
-
 import UIKit
 
 class MemeEditorViewController: UIViewController {
@@ -26,13 +18,6 @@ class MemeEditorViewController: UIViewController {
         .font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         .strokeWidth: -3.00
     ]
-//
-//    struct Meme {
-//        var topText: String
-//        var bottomText: String
-//        var originalImage: UIImage?
-//        var memedImage: UIImage?
-//    }
     
     // Lifecycle methods
     override func viewDidLoad() {
@@ -65,13 +50,6 @@ class MemeEditorViewController: UIViewController {
         unsubscribeFromKeyboardNotifications()
     }
 
-    // Function to save a meme
-    func save() {
-        // Create the meme
-        let memedImage = generateMemedImage()
-        _ = Meme(top: topTextField.text!, bottom: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage.memedImage)
-    }
-
     func generateMemedImage() -> Meme {
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -79,12 +57,14 @@ class MemeEditorViewController: UIViewController {
         topNavBar.isHidden = true
         bottomToolbar.isHidden = true
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
-        
+
         let memedImageObject = Meme(top: topTextField.text!, bottom: bottomTextField.text!, image: imagePickerView.image!, memedImage: UIGraphicsGetImageFromCurrentImageContext()!)
-        
+
         topNavBar.isHidden = false
         bottomToolbar.isHidden = false
         UIGraphicsEndImageContext()
+        
+        (UIApplication.shared.delegate as! AppDelegate).memes.append(memedImageObject)
         
         return memedImageObject
     }
@@ -92,7 +72,7 @@ class MemeEditorViewController: UIViewController {
     // Method to share meme
     @IBAction func share(_ sender: Any) {
         let memeToShare = generateMemedImage()
-        let activityView = UIActivityViewController(activityItems: [memeToShare as Any], applicationActivities: nil);
+        let activityView = UIActivityViewController(activityItems: [memeToShare.memedImage as Any], applicationActivities: nil);
         self.present(activityView, animated: true, completion: nil)
         activityView.completionWithItemsHandler = {
             (activity, success, items, error) in
@@ -104,8 +84,8 @@ class MemeEditorViewController: UIViewController {
     
     // Method for cancel button
     @IBAction func cancel(_ sender: Any) {
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
+        topTextField.text = ""
+        bottomTextField.text = ""
         imagePickerView.image = nil
     }
 }
