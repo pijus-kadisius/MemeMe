@@ -31,11 +31,22 @@ class SentMemesCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionViewCell", for: indexPath) as! MemeCollectionViewCell
         let meme = self.memes[(indexPath as NSIndexPath).row]
-        
-        print("in collectionView memes.count", memes.count);
-        
         cell.memeImage?.image = meme.memedImage
         
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath:IndexPath) {
+        
+        // Grab the DetailVC from Storyboard
+        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
+        let meme = appDelegate.memes[(indexPath as NSIndexPath).row]
+
+        //Populate view controller with data from the selected item
+        detailController.meme = meme
+        
+        // Present the view controller using navigation
+        navigationController!.pushViewController(detailController, animated: true)
+        
     }
 }

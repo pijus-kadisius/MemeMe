@@ -53,13 +53,10 @@ class MemeEditorViewController: UIViewController {
     func generateMemedImage() -> Meme {
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
-        
         topNavBar.isHidden = true
         bottomToolbar.isHidden = true
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
-
         let memedImageObject = Meme(top: topTextField.text!, bottom: bottomTextField.text!, image: imagePickerView.image!, memedImage: UIGraphicsGetImageFromCurrentImageContext()!)
-
         topNavBar.isHidden = false
         bottomToolbar.isHidden = false
         UIGraphicsEndImageContext()
