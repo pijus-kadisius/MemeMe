@@ -51,11 +51,13 @@ class MemeEditorViewController: UIViewController {
     }
 
     // Function to save a meme
-    func save() {
-        // Create the meme
-        let memedImage = generateMemedImage()
-        _ = Meme(top: topTextField.text!, bottom: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage.memedImage)
-    }
+//    func save() {
+//        // Create the meme
+//        let memedImage = generateMemedImage()
+//        let meme = Meme(top: topTextField.text!, bottom: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage.memedImage)
+//        // save meme to shared app delegate
+//        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
+//    }
 
     func generateMemedImage() -> Meme {
         // Render view to an image
@@ -67,6 +69,8 @@ class MemeEditorViewController: UIViewController {
         topNavBar.isHidden = false
         bottomToolbar.isHidden = false
         UIGraphicsEndImageContext()
+        
+        (UIApplication.shared.delegate as! AppDelegate).memes.append(memedImageObject)
         
         return memedImageObject
     }
@@ -86,8 +90,8 @@ class MemeEditorViewController: UIViewController {
     
     // Method for cancel button
     @IBAction func cancel(_ sender: Any) {
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
+        topTextField.text = ""
+        bottomTextField.text = ""
         imagePickerView.image = nil
     }
 }
