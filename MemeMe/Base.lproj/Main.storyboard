@@ -103,6 +103,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="flowLayout" destination="Aoo-KX-FnY" id="IFs-wk-Vuj"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wby-p6-U1n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -312,6 +315,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aGj-n2-XAI"/>
+        <segue reference="7Mc-vb-mmB"/>
     </inferredMetricsTieBreakers>
 </document>
