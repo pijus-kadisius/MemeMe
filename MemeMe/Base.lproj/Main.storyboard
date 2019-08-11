@@ -89,7 +89,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="Oqm-8G-u7O">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="V7t-pl-GIe" userLabel="Create Meme Button Item">
+                        <barButtonItem key="rightBarButtonItem" id="V7t-pl-GIe" userLabel="Create Meme Button Item">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3iP-3Y-tVA">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -167,7 +167,7 @@
                                                 <action selector="share:" destination="BYZ-38-t0r" id="1qc-Qc-51L"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="Ha3-sG-zLF">
+                                        <barButtonItem key="rightBarButtonItem" id="Ha3-sG-zLF">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="j7u-Ot-Hff" userLabel="Cancel Button">
                                                 <rect key="frame" x="311" y="7" width="48" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -242,7 +242,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="Dsu-fE-tff" userLabel="Sent Memes">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="fv9-Jq-O46" userLabel="Create Meme Button Item">
+                        <barButtonItem key="rightBarButtonItem" id="fv9-Jq-O46" userLabel="Create Meme Button Item">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B2X-p5-ZM1" userLabel="+">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
