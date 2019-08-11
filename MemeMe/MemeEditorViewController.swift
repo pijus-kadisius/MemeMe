@@ -6,10 +6,11 @@ class MemeEditorViewController: UIViewController {
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
-    @IBOutlet var shareButton: UIBarButtonItem!
+//    @IBOutlet var shareButton: UIBarButtonItem!
+    
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var topNavBar: UINavigationBar!
     @IBOutlet weak var bottomToolbar: UIToolbar!
-    
     
     // Define text field properties
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
@@ -25,6 +26,8 @@ class MemeEditorViewController: UIViewController {
         
         setupTextField(topTextField, text: "TOP TEXT")
         setupTextField(bottomTextField, text: "BOTTOM TEXT")
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "ShareButton", style: .done, target: self, action: #selector(MemeEditorViewController.share(_:)))
     }
     
     func setupTextField(_ textField: UITextField, text: String) {
@@ -84,6 +87,8 @@ class MemeEditorViewController: UIViewController {
         topTextField.text = ""
         bottomTextField.text = ""
         imagePickerView.image = nil
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
 }
 

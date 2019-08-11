@@ -122,7 +122,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bpV-8A-HkR">
                                 <rect key="frame" x="23" y="94" width="329" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="bmG-Hb-bBn"/>
+                                    <constraint firstAttribute="height" constant="30" id="JnI-VP-Zc2"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -131,7 +131,7 @@
                             <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="10b-jh-Q4h" userLabel="Bottom Text Field">
                                 <rect key="frame" x="28" y="563" width="319" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="K38-Qp-obT"/>
+                                    <constraint firstAttribute="height" constant="30" id="GzZ-PG-yd6"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -156,44 +156,46 @@
                             </toolbar>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTQ-tm-Nqf">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="bWH-re-PBO" userLabel="Navigation Item">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="tWM-eY-Vlq" userLabel="ShareButton">
+                                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="share:" destination="BYZ-38-t0r" id="1qc-Qc-51L"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="Ha3-sG-zLF">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="j7u-Ot-Hff" userLabel="Cancel Button">
+                                                <rect key="frame" x="311" y="7" width="48" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="cancel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WNR-U9-Y4w"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zF-MI-pFP" userLabel="Share Button">
-                                <rect key="frame" x="17" y="27" width="40" height="30"/>
-                                <state key="normal" title="Share"/>
-                                <connections>
-                                    <action selector="share:" destination="BYZ-38-t0r" eventType="touchUpInside" id="178-EK-T1C"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7u-Ot-Hff" userLabel="Cancel Button">
-                                <rect key="frame" x="311" y="27" width="48" height="30"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WNR-U9-Y4w"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="TTQ-tm-Nqf" firstAttribute="leading" secondItem="kpc-40-Yon" secondAttribute="leading" id="6uD-Yd-WHz"/>
-                            <constraint firstItem="10b-jh-Q4h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="Au5-ch-PLd"/>
-                            <constraint firstItem="10b-jh-Q4h" firstAttribute="centerX" secondItem="b2b-2m-DAQ" secondAttribute="centerX" id="BRL-XG-FgT"/>
-                            <constraint firstItem="kpc-40-Yon" firstAttribute="leading" secondItem="b2b-2m-DAQ" secondAttribute="leading" id="Bk9-35-MNU"/>
-                            <constraint firstItem="TTQ-tm-Nqf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BvR-ai-Wgj"/>
-                            <constraint firstItem="bpV-8A-HkR" firstAttribute="top" secondItem="TTQ-tm-Nqf" secondAttribute="bottom" constant="30" id="DLw-ao-N9o"/>
-                            <constraint firstItem="TTQ-tm-Nqf" firstAttribute="centerX" secondItem="bpV-8A-HkR" secondAttribute="centerX" id="G7M-cP-Nov"/>
-                            <constraint firstItem="3zF-MI-pFP" firstAttribute="baseline" secondItem="j7u-Ot-Hff" secondAttribute="baseline" id="J5R-TF-6xz"/>
-                            <constraint firstItem="kpc-40-Yon" firstAttribute="trailing" secondItem="b2b-2m-DAQ" secondAttribute="trailing" id="JCF-2o-tmU"/>
-                            <constraint firstItem="TTQ-tm-Nqf" firstAttribute="centerY" secondItem="j7u-Ot-Hff" secondAttribute="centerY" id="OG5-Tn-R8b"/>
-                            <constraint firstItem="b2b-2m-DAQ" firstAttribute="top" secondItem="10b-jh-Q4h" secondAttribute="bottom" constant="30" id="P6m-nn-3J8"/>
-                            <constraint firstItem="TTQ-tm-Nqf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Pnc-b0-fVF"/>
-                            <constraint firstItem="j7u-Ot-Hff" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="YRK-1d-PgL"/>
-                            <constraint firstItem="b2b-2m-DAQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="e85-tE-UKb"/>
-                            <constraint firstItem="3zF-MI-pFP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="17" id="ibl-iL-OSp"/>
-                            <constraint firstAttribute="trailing" secondItem="TTQ-tm-Nqf" secondAttribute="trailing" id="jC9-kU-teo"/>
-                            <constraint firstItem="TTQ-tm-Nqf" firstAttribute="trailing" secondItem="kpc-40-Yon" secondAttribute="trailing" id="mFL-pG-yqH"/>
-                            <constraint firstItem="b2b-2m-DAQ" firstAttribute="top" secondItem="kpc-40-Yon" secondAttribute="bottom" id="rOB-e3-CBO"/>
-                            <constraint firstItem="kpc-40-Yon" firstAttribute="top" secondItem="TTQ-tm-Nqf" secondAttribute="bottom" id="rWh-ag-sWp"/>
-                            <constraint firstItem="bpV-8A-HkR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="23" id="yoc-zz-aG2"/>
+                            <constraint firstItem="kpc-40-Yon" firstAttribute="top" secondItem="TTQ-tm-Nqf" secondAttribute="bottom" id="1sL-Ss-7OL"/>
+                            <constraint firstItem="kpc-40-Yon" firstAttribute="leading" secondItem="b2b-2m-DAQ" secondAttribute="leading" id="2vu-Eb-hfe"/>
+                            <constraint firstItem="TTQ-tm-Nqf" firstAttribute="centerX" secondItem="bpV-8A-HkR" secondAttribute="centerX" id="38a-Bh-svh"/>
+                            <constraint firstItem="TTQ-tm-Nqf" firstAttribute="leading" secondItem="kpc-40-Yon" secondAttribute="leading" id="58I-i5-quO"/>
+                            <constraint firstAttribute="trailing" secondItem="TTQ-tm-Nqf" secondAttribute="trailing" id="5ds-1g-xw9"/>
+                            <constraint firstItem="bpV-8A-HkR" firstAttribute="top" secondItem="TTQ-tm-Nqf" secondAttribute="bottom" constant="30" id="967-dh-7hq"/>
+                            <constraint firstItem="TTQ-tm-Nqf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FsT-D4-lct"/>
+                            <constraint firstItem="kpc-40-Yon" firstAttribute="trailing" secondItem="b2b-2m-DAQ" secondAttribute="trailing" id="GLH-vB-zFg"/>
+                            <constraint firstItem="TTQ-tm-Nqf" firstAttribute="trailing" secondItem="kpc-40-Yon" secondAttribute="trailing" id="RvK-mS-n9Q"/>
+                            <constraint firstItem="b2b-2m-DAQ" firstAttribute="top" secondItem="10b-jh-Q4h" secondAttribute="bottom" constant="30" id="SBh-9c-ktG"/>
+                            <constraint firstItem="10b-jh-Q4h" firstAttribute="centerX" secondItem="b2b-2m-DAQ" secondAttribute="centerX" id="SnH-7a-G3x"/>
+                            <constraint firstItem="10b-jh-Q4h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="c7P-IK-4nX"/>
+                            <constraint firstItem="b2b-2m-DAQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="hcw-GQ-3bF"/>
+                            <constraint firstItem="TTQ-tm-Nqf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pCz-8i-cwL"/>
+                            <constraint firstItem="bpV-8A-HkR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="23" id="tPI-Ps-4TZ"/>
+                            <constraint firstItem="b2b-2m-DAQ" firstAttribute="top" secondItem="kpc-40-Yon" secondAttribute="bottom" id="zKu-5A-heb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -204,7 +206,7 @@
                         <outlet property="bottomToolbar" destination="b2b-2m-DAQ" id="Tof-0i-r4B"/>
                         <outlet property="cameraButton" destination="EGZ-ws-keq" id="7xG-bQ-moj"/>
                         <outlet property="imagePickerView" destination="kpc-40-Yon" id="LE5-PL-eoN"/>
-                        <outlet property="shareButton" destination="3zF-MI-pFP" id="zfQ-T8-KV8"/>
+                        <outlet property="shareButton" destination="tWM-eY-Vlq" id="1J5-ZR-FLG"/>
                         <outlet property="topNavBar" destination="TTQ-tm-Nqf" id="22Z-kP-27z"/>
                         <outlet property="topTextField" destination="bpV-8A-HkR" id="PcU-fN-wBS"/>
                     </connections>

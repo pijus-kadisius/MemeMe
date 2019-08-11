@@ -16,7 +16,6 @@ class SentMemesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         memes = appDelegate.memes
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {
