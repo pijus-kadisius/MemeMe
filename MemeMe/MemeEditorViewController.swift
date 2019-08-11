@@ -54,6 +54,9 @@ class MemeEditorViewController: UIViewController {
     }
 
     func generateMemedImage() -> Meme {
+        // initialize imagePickerView.image to avoid nil errors
+        imagePickerView.image = UIImage();
+        
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         topNavBar.isHidden = true
@@ -64,6 +67,7 @@ class MemeEditorViewController: UIViewController {
         bottomToolbar.isHidden = false
         UIGraphicsEndImageContext()
         
+        // Append memes to shared array in AppDelegate
         (UIApplication.shared.delegate as! AppDelegate).memes.append(memedImageObject)
         
         return memedImageObject
