@@ -266,25 +266,21 @@
         <!--Detail View Controller-->
         <scene sceneID="PYL-W0-8xr">
             <objects>
-                <viewController storyboardIdentifier="MemeDetailViewController" id="eTN-HW-VMe" userLabel="Detail View Controller" customClass="MemeDetailViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeDetailViewController" hidesBottomBarWhenPushed="YES" id="eTN-HW-VMe" userLabel="Detail View Controller" customClass="MemeDetailViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e4N-Zj-Zae">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BZI-Nz-MpX" userLabel="Detail Image View">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZWr-eD-Lyz" userLabel="Detail Image View">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZWr-eD-Lyz" userLabel="Detail Image View">
+                                <rect key="frame" x="0.0" y="21" width="375" height="645"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="BZI-Nz-MpX" firstAttribute="leading" secondItem="Gyk-km-AjH" secondAttribute="leading" id="AwF-0k-VHQ"/>
-                            <constraint firstItem="BZI-Nz-MpX" firstAttribute="trailing" secondItem="Gyk-km-AjH" secondAttribute="trailing" id="Tay-3s-bEm"/>
-                            <constraint firstItem="BZI-Nz-MpX" firstAttribute="bottom" secondItem="Gyk-km-AjH" secondAttribute="bottom" id="aQm-v0-3GC"/>
-                            <constraint firstItem="BZI-Nz-MpX" firstAttribute="top" secondItem="Gyk-km-AjH" secondAttribute="top" id="lhj-N1-0tB"/>
+                            <constraint firstItem="ZWr-eD-Lyz" firstAttribute="centerX" secondItem="Gyk-km-AjH" secondAttribute="centerX" id="DdC-UY-lUb"/>
+                            <constraint firstItem="ZWr-eD-Lyz" firstAttribute="centerY" secondItem="Gyk-km-AjH" secondAttribute="centerY" id="Q7n-IH-V7o"/>
+                            <constraint firstItem="ZWr-eD-Lyz" firstAttribute="top" secondItem="Gyk-km-AjH" secondAttribute="top" constant="1" id="ntz-VB-AKl"/>
+                            <constraint firstItem="ZWr-eD-Lyz" firstAttribute="leading" secondItem="e4N-Zj-Zae" secondAttribute="leading" id="xJ0-TC-tTz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gyk-km-AjH"/>
                     </view>
@@ -315,6 +311,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7Mc-vb-mmB"/>
+        <segue reference="aGj-n2-XAI"/>
     </inferredMetricsTieBreakers>
 </document>
